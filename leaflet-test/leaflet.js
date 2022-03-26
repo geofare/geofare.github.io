@@ -1,3 +1,10 @@
+db.collection("locations").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        data.push(doc.data());
+    });
+    run();
+});
 let data = [
     {
         "address":"1415 Rhoadmiller St, Richmond, VA 23220",
@@ -21,7 +28,7 @@ let data = [
         "description":"You can get food here on 3/27/2022, from 3pm-5pm"
     }
 ]
-window.onload = function(){
+function run(){
     var map = L.map('map').setView([37.56651, -77.45572], 13);
     icon = L.divIcon({
         className: 'custom-div-icon',

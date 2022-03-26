@@ -29,3 +29,18 @@
     text-align: center;
     vertical-align: middle;
 }
+#map{
+    min-height:400px;
+    height:70vh;
+}
+.navbar{
+    padding:10px;
+}
+.orange-container{
+    background:#e67e22;
+    color:white;
+}
+.container{
+    padding-top:10px;
+    padding-bottom:10px;
+}

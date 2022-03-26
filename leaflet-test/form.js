@@ -6,6 +6,33 @@
 // Include the libraries=places parameter when you first load the API.
 // For example: <script
 // src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=places">
+function geocode(){
+    var location = document.getElementById("ship-address").value + " " + document.getElementById("address2").value + " " + document.getElementById("locality").value + " " + document.getElementById("state").value + " " + document.getElementById("postcode").value + " " + document.getElementById("country").value + " ";
+    axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
+        params:{
+            address:location,
+            key: 'AIzaSyCZXKzm0VgC5FO2IAxOnp83V7rHXrYbUiQ'
+        }
+    })
+    .then(function(response){
+        //Log full response
+
+        var L = {
+          'event': document.getElementById("name").value,
+          'address': response.data.results[0].formatted_address,
+          'latitude': response.data.results[0].geometry.location['lat'],
+          'longitude': response.data.results[0].geometry.location['lng'],
+          'start-time': document.getElementById("start").value,
+          'end-time': document.getElementById("end").value,
+          'description': document.getElementById("desc").value
+        }
+        console.log(L);
+        //Push to database here
+    })
+    .catch(function(error){
+        console.log(error);
+    })
+}
 let autocomplete;
 let address1Field;
 let address2Field;

@@ -43,61 +43,71 @@
             <div class="container">
                 <h2>Add a ping</h2>
                 <p>Add a location for your local food bank, helping others to reach it.</p>
-                <h3>Environment website lol</h3>
                 <form id="address-form" action="" method="get" autocomplete="off">
-                    <p class="title">Sample address form for North America</p>
                     <p class="note"><em>* = required field</em></p>
-                    <label class="full-field">
-                      <span class="form-label">Event Name*</span>
-                      <input id="name" name="name" required />
-                    </label>
-                    <label class="full-field">
-                      <span class="form-label">Description</span>
-                      <input id="desc" name="desc" />
-                    </label>
+                    <div class="form-group">
+                        <label class="full-field">
+                        <span class="form-label">Location Name*</span>
+                        <input id="name" name="name" class="form-control" required />
+                        </label>
+                        <label class="full-field">
+                        <span class="form-label">Description</span>
+                        <input id="desc" name="desc" class="form-control" />
+                        </label>
+                    </div>
+                    <div class="form-group">
                     <label class="full-field">
                       <!-- Avoid the word "address" in id, name, or label text to avoid browser autofill from conflicting with Place Autocomplete. Star or comment bug https://crbug.com/587466 to request Chromium to honor autocomplete="off" attribute. -->
                       <span class="form-label">Address*</span>
                       <input
+                        class="form-control"
                         id="ship-address"
                         name="ship-address"
                         required
                         autocomplete="off"
                       />
                     </label>
+                </div>
+                <div class="form-group">
                     <label class="full-field">
                       <span class="form-label">Apartment, unit, suite, or floor #</span>
-                      <input id="address2" name="address2" />
+                      <input class="form-control" id="address2" name="address2" />
                     </label>
                     <label class="full-field">
                       <span class="form-label">City*</span>
-                      <input id="locality" name="locality" required />
+                      <input class="form-control" id="locality" name="locality" required />
                     </label>
                     <label class="slim-field-left">
                       <span class="form-label">State/Province*</span>
-                      <input id="state" name="state" required />
+                      <input class="form-control" id="state" name="state" required />
                     </label>
                     <label class="slim-field-right" for="postal_code">
                       <span class="form-label">Postal code*</span>
-                      <input id="postcode" name="postcode" required />
+                      <input class="form-control" id="postcode" name="postcode" required />
                     </label>
                     <label class="full-field">
                       <span class="form-label">Country/Region*</span>
-                      <input id="country" name="country" required />
+                      <input class="form-control" id="country" name="country" required />
                     </label>
+                </div>
+                <div class="form-group">
                     <label class="full-field">
-                      <span class="form-label">Start Time</span>
-                      <input id="start" name="start" />
-                    </label>
-                    <label class="full-field">
-                      <span class="form-label">End Time</span>
-                      <input id="end" name="end" />
-                    </label>
-                    <button type="button" class="my-button" onclick="geocode()">Save address</button>
+                        <span class="form-label">Start Time</span>
+                        <input class="form-control" id="start" name="start" />
+                      </label>
+                      <label class="full-field">
+                        <span class="form-label">End Time</span>
+                        <input class="form-control" id="end" name="end" />
+                      </label>
+                </div>
+                <br/>
+                <div class="form-group">
+                    <button type="button" class="my-button btn btn-primary" onclick="geocode()">Save address</button>
               
                     <!-- Reset button provided for development testing convenience.
                 Not recommended for user-facing forms due to risk of mis-click when aiming for Submit button. -->
-                    <input type="reset" value="Clear form" />
+                    <input type="reset" class="btn btn-danger" value="Clear form" />
+                </div>
                   </form>
             </div>
         </div>
@@ -107,33 +117,5 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initAutocomplete&libraries=places&v=weekly&channel=2"
         async
       ></script>
-      <script>
-        function geocode(){
-            var location = document.getElementById("ship-address").value + " " + document.getElementById("address2").value + " " + document.getElementById("locality").value + " " + document.getElementById("state").value + " " + document.getElementById("postcode").value + " " + document.getElementById("country").value + " ";
-            axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
-                params:{
-                    address:location,
-                    key: 'AIzaSyCZXKzm0VgC5FO2IAxOnp83V7rHXrYbUiQ'
-                }
-            })
-            .then(function(response){
-                //Log full response
-
-                var L = {
-                  'event': document.getElementById("name").value,
-                  'address': response.data.results[0].formatted_address,
-                  'latitude': response.data.results[0].geometry.location['lat'],
-                  'longitude': response.data.results[0].geometry.location['lng'],
-                  'start-time': document.getElementById("start").value,
-                  'end-time': document.getElementById("end").value,
-                  'description': document.getElementById("desc").value
-                }
-                //Push to database here
-            })
-            .catch(function(error){
-                console.log(error);
-            })
-        }
-      </script>
     </body>
 </html>

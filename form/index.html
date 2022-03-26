@@ -12,8 +12,16 @@
             <p class="title">Sample address form for North America</p>
             <p class="note"><em>* = required field</em></p>
             <label class="full-field">
+              <span class="form-label">Event Name*</span>
+              <input id="name" name="name" required />
+            </label>
+            <label class="full-field">
+              <span class="form-label">Description</span>
+              <input id="desc" name="desc" />
+            </label>
+            <label class="full-field">
               <!-- Avoid the word "address" in id, name, or label text to avoid browser autofill from conflicting with Place Autocomplete. Star or comment bug https://crbug.com/587466 to request Chromium to honor autocomplete="off" attribute. -->
-              <span class="form-label">Deliver to*</span>
+              <span class="form-label">Address*</span>
               <input
                 id="ship-address"
                 name="ship-address"
@@ -41,6 +49,14 @@
               <span class="form-label">Country/Region*</span>
               <input id="country" name="country" required />
             </label>
+            <label class="full-field">
+              <span class="form-label">Start Time</span>
+              <input id="start" name="start" />
+            </label>
+            <label class="full-field">
+              <span class="form-label">End Time</span>
+              <input id="end" name="end" />
+            </label>
             <button type="button" class="my-button" onclick="geocode()">Save address</button>
       
             <!-- Reset button provided for development testing convenience.
@@ -65,18 +81,16 @@
                 .then(function(response){
                     //Log full response
 
-                    //formatted address
-                    console.log(response.data.results[0]);
-                    console.log(response.data.results[0].geometry.location);
-
                     var L = {
+                      'event': document.getElementById("name").value,
                       'address': response.data.results[0].formatted_address,
-                      'longitude': response.data.results[0].geometry.location.longitude,
-                      'latitude': response.data.results[0].geometry.location.latitude,
-                      'start-time': '6:00 p.m',
-                      'end-time': '10 p.m',
-                      'description': 'Placeholder'
+                      'latitude': response.data.results[0].geometry.location['lat'],
+                      'longitude': response.data.results[0].geometry.location['lng'],
+                      'start-time': document.getElementById("start").value,
+                      'end-time': document.getElementById("end").value,
+                      'description': document.getElementById("desc").value
                     }
+                    //Push to database here
                 })
                 .catch(function(error){
                     console.log(error);

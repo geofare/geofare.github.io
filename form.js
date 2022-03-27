@@ -39,6 +39,7 @@ function geocode(){
     .catch(function(error){
         console.log(error);
     })
+    document.getElementById("address-form").reset();
 }
 let autocomplete;
 let address1Field;

@@ -41,7 +41,8 @@ body{
     height:60vh;
 }
 .navbar{
-    padding:10px;
+    padding-left:10px;
+    padding-right:10px;
 }
 /*.orange-container{
     background:#e67e22;

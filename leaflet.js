@@ -1,7 +1,10 @@
 db.collection("locations").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
-        data.push(doc.data());
+        let dat = doc.data();
+        dat.name = dat.event;
+        delete dat.event;
+        data.push(dat);
     });
     run();
 });

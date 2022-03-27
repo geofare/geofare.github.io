@@ -29,6 +29,7 @@ function geocode(){
         db.collection("locations").add(L)
         .then((docRef) => {
             console.log("Document written with ID: ", docRef.id);
+            document.getElementById("address-form").reset();
         })
         .catch((error) => {
             console.error("Error adding document: ", error);
@@ -39,7 +40,6 @@ function geocode(){
     .catch(function(error){
         console.log(error);
     })
-    document.getElementById("address-form").reset();
 }
 let autocomplete;
 let address1Field;

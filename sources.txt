@@ -1,2 +1,4 @@
 For address autofill in our form:
 https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
+For custom markers:
+https://www.geoapify.com/create-custom-map-marker-icon

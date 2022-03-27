@@ -43,6 +43,7 @@ body{
 .navbar{
     padding-left:10px;
     padding-right:10px;
+    background:#2c3e50 !important;
 }
 /*.orange-container{
     background:#e67e22;
@@ -104,3 +105,18 @@ body{
     50%{opacity:0;}
     100% {opacity:1;}
   }
+.footer{
+    padding-top:10px;
+    width:100%;
+    background:#2c3e50;
+    color:white;
+}
+.footer a{
+    color:#96b7e7
+}
+.footer a:hover{
+    color:#6a96d8
+}
+.red{
+    color:#e74c3c;
+}

@@ -5,6 +5,9 @@ body{
 .icon{
     height:60px;
 }
+.star{
+  color:#f75a5a;
+}
 .marker-pin {
     width: 30px;
     height: 30px;

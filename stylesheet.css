@@ -38,7 +38,7 @@ body{
 }
 #map{
     min-height:400px;
-    height:60vh;
+    height:80vh;
 }
 .navbar{
     padding-left:10px;
@@ -61,11 +61,11 @@ body{
     padding-bottom:40px;
 }
 .fade-in {
-    animation: fadeIn 1.5s;
-    -webkit-animation: fadeIn 1.5s;
-    -moz-animation: fadeIn 1.5s;
-    -o-animation: fadeIn 1.5s;
-    -ms-animation: fadeIn 1.5s;
+    animation: fadeIn 2.0s;
+    -webkit-animation: fadeIn 2.0s;
+    -moz-animation: fadeIn 2.0s;
+    -o-animation: fadeIn 2.0s;
+    -ms-animation: fadeIn 2.0s;
   }
   @keyframes fadeIn {
     0% {opacity:0;}
@@ -82,11 +82,11 @@ body{
     100% {opacity:1;}
   }
   .fade-in-2 {
-    animation: fadeIn 3.0s;
-    -webkit-animation: fadeIn 3.0s;
-    -moz-animation: fadeIn 3.0s;
-    -o-animation: fadeIn 3.0s;
-    -ms-animation: fadeIn 3.0s;
+    animation: fadeIn 4.0s;
+    -webkit-animation: fadeIn 4.0s;
+    -moz-animation: fadeIn 4.0s;
+    -o-animation: fadeIn 4.0s;
+    -ms-animation: fadeIn 4.0s;
   }
   @keyframes fadeIn {
     0% {opacity:0;}

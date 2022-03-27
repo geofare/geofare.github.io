@@ -1,3 +1,4 @@
+let data = [];
 db.collection("locations").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
@@ -8,7 +9,7 @@ db.collection("locations").get().then((querySnapshot) => {
     });
     run();
 });
-let data = [
+/*let data = [
     {
         "address":"1415 Rhoadmiller St, Richmond, VA 23220",
         "latitude":37.56651,
@@ -30,7 +31,7 @@ let data = [
         "name":"Masjid Bilal",
         "description":"You can get food here on 3/27/2022, from 3pm-5pm"
     }
-]
+]*/
 function run(){
     var map = L.map('map').setView([37.56651, -77.45572], 13);
     icon = L.divIcon({
@@ -64,6 +65,7 @@ function run(){
           <div><h1>${obj.name}</h1>
             <p>You are able to get food at this location.</p>
             <p>${obj.description}</p>
+            <p>Available from ${obj["start-time"]} to ${obj["end-time"]}</p>
             <p>Click <a target = "_blank" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(obj.address)}">here</a> for direcitons.</p>
           </div>`);
         marker.bindPopup(popup);

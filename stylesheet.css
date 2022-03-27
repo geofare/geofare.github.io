@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+body{
+    font-family:"Noto Sans";
+}
+.icon{
+    height:60px;
+}
 .marker-pin {
     width: 30px;
     height: 30px;

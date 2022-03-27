@@ -1,4 +1,4 @@
-# [GeoFare](https://hoohacks2022.github.io/)
+# [GeoFare](https://geofare.github.io/)
 GeoFare is a web application developed to map out information about food donations sites to limit the amount of food waste and help out those who live in food scarce environments.
 - Features Mobile Compatability
 - Includes Google Maps Support

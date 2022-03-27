@@ -10,3 +10,5 @@ GeoFare is a web application developed to map out information about food donatio
 2. This location is sent to a Cloud Firestore server to be stored with all other locations in the database.
 3. Everytime the website starts up, the data is pulled from the database to a leaflet map and displayed as pins.
 4. Clicking on each pin show a popup with a link to a Google Maps page with directions to the location
+
+Learn more about Geofare [here](https://devpost.com/software/geofare).

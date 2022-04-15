@@ -26,15 +26,8 @@ function geocode(){
           'end-time': document.getElementById("end").value,
           'description': document.getElementById("desc").value
         }
-        db.collection("locations").add(L)
-        .then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);
-            document.getElementById("address-form").reset();
-        })
-        .catch((error) => {
-            console.error("Error adding document: ", error);
-        });
-        console.log(L);
+        generateLocation(L);
+        
         //Push to database here
     })
     .catch(function(error){

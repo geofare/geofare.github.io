@@ -18,7 +18,7 @@ function geocode(){
         //Log full response
 
         var L = {
-          'event': document.getElementById("name").value,
+          'name': document.getElementById("name").value,
           'address': response.data.results[0].formatted_address,
           'latitude': response.data.results[0].geometry.location['lat'],
           'longitude': response.data.results[0].geometry.location['lng'],
